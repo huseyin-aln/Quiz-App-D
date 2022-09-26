@@ -45,8 +45,12 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'dj_rest_auth',
 
+     # third party
+    'nested_admin',
+
     # myapp
-    'quiz'
+    'quiz',
+    
 ]
 
 MIDDLEWARE = [
