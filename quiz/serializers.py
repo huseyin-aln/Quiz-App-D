@@ -19,6 +19,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class QuizSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField()
+
     class Meta:
         model = Quiz
         fields = (
@@ -30,7 +31,6 @@ class QuizSerializer(serializers.ModelSerializer):
 
 
 class OptionSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Option
         fields = (
@@ -42,13 +42,19 @@ class OptionSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
     options = OptionSerializer(many=True)
+    quiz = serializers.StringRelatedField()
 
     class Meta:
         model = Question
         fields = (
             'id',
+            'quiz',
             'title',
             'options',
-            'difficulty',
+            'difficulty'
         )
 
+
+# title = models.TextField()
+#     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+#     difficulty = models.CharField(max_length=1, choices=SCALE)

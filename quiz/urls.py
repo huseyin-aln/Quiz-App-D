@@ -10,3 +10,4 @@ urlpatterns = [
     path('quiz/', QuizList.as_view()),
     path('question/', QuestionList.as_view()),
 ]
+
